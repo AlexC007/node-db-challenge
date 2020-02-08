@@ -1,0 +1,18 @@
+{
+  "name": "node-db-challenge",
+  "version": "(1.0.0)",
+  "description": "Challenge for Node-db",
+  "main": "(index.js)",
+  "repository": "https://github.com/AlexC007/node-db-challenge.git",
+  "author": "(Chawn Christian <chawn.christian@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.20.8",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+}
+}
