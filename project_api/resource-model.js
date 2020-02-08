@@ -8,10 +8,10 @@ module.exports = {
 };
 
 function find() {
-  return db('project');
+  return db('resource');
 }
-function add(project) {
-    return db('project')
-      .insert(project)
+function add(resource) {
+    return db('resource')
+      .insert(resource)
       .then(ids => ({ id: ids[0] }));
   }

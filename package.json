@@ -3,6 +3,9 @@
   "version": "(1.0.0)",
   "description": "Challenge for Node-db",
   "main": "(index.js)",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
   "repository": "https://github.com/AlexC007/node-db-challenge.git",
   "author": "(Chawn Christian <chawn.christian@gmail.com>",
   "license": "MIT",
@@ -14,5 +17,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-}
+  }
 }

@@ -1,4 +1,5 @@
 
+
 exports.up = function(knex) {
     return knex.schema
     .createTable('project', tbl => {
@@ -15,8 +16,7 @@ exports.up = function(knex) {
       .createTable('task', tbl => {
         tbl.increments();
         tbl.integer('project_id');
-        tbl.reference('id');
-        tbl.inTable('project')
+        tbl.inTable('project');
         tbl.text('Description').notNullable();
         tbl.text('Notes', 300);
         tbl.boolean('Completed').defaultTo('False').notNullable();
