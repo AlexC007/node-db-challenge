@@ -25,4 +25,19 @@ router.post('/', (req, res) => {
     });
   });
 
+  router.get('/:id/tasks', (req, res) => {
+    // do your magic!
+    task.getProjectTask(req.params.id)
+      .then(task => {
+        if (task) {
+          res.status(200).json(task);
+        } else {
+          res.status(404).json({errorMessage: "User does not exist." });
+        }
+      })
+      .catch(err => {
+        res.status(500).json({errorMessage: "Error connecting" });
+      });
+  });
+  
   module.exports = router;

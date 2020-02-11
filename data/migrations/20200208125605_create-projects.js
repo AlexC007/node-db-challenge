@@ -12,15 +12,12 @@ exports.up = function(knex) {
         tbl.text('Name', 128).unique().notNullable();
         tbl.text('Description');
       })
-      .createTable('task', tbl => {
+      /*.createTable('task', tbl => {
         tbl.increments();
-        tbl.integer('project_id');
-        tbl.reference('id');
-        tbl.inTable('project')
         tbl.text('Description').notNullable();
         tbl.text('Notes', 300);
         tbl.boolean('Completed').defaultTo('False').notNullable();
-      });
+      });*/
 };
 
 
