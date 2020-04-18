@@ -15,13 +15,20 @@ router.get('/', (req, res) => {
   });
 });
 router.get('/:id',(req, res) => {
-    // do your magic!
+  
     project.getById(req.params.id)
     .then(data => res.json(data))
     .catch(error =>
       res.status(404).json({ message: "Could not retried user with this ID" })
     );
   });
+
+  /*
+  router.get('/:id', (req,res)=>{
+    project.getByID(req.params.id)
+    .then(data = res.json(data))
+  })
+  */
 
 router.post('/', (req, res) => {
     const projectData = req.body;
@@ -37,7 +44,7 @@ router.post('/', (req, res) => {
 
   
 router.post('/:id/tasks', (req, res) => {
-    // do your magic!
+  
     const id = req.params.id;
     const data = req.body;
     task.add({...data, project_id: id})
@@ -50,5 +57,38 @@ router.post('/:id/tasks', (req, res) => {
       })
   });
   
+  router.put('/:id', (req,res) => {
+    const {id} = req.params;
+    const changes = req.body;
+    
+    project.update(changes,id)
+    .then(updated =>{
+      if(updated) {
+        res.json({updated})
+      }
+    else {
+        res.status(404).json({ message: 'Could not find PROJECT with given id' });
+      }
+     })
+     .catch (err => {
+      res.status(500).json({ message: 'Failed to update PROJECT' });
+    });
+  })
+
+  router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+  
+    project.remove(id)
+    .then(deleted => {
+      if (deleted) {
+        res.json({ removed: deleted });
+      } else {
+        res.status(404).json({ message: 'Could not find PROJECT with given id' });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Failed to delete PROJECT' });
+    });
+  });
 
   module.exports = router;

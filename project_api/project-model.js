@@ -6,6 +6,8 @@ module.exports = {
   find,
   add,
   getById,
+  update,
+  remove
 };
 
 function find() {
@@ -13,11 +15,22 @@ function find() {
 }
 function getById(id) {
     return db('project')
-      .where({ id })
+      .where({ id: Number (id) })
       .first();
   }
 function add(project) {
     return db('project')
       .insert(project)
       .then(ids => ({ id: ids[0] }));
+  }
+
+  function update(changes, id){
+    return db('project')
+      .where('id', Number(id))
+      .update(changes)
+  }
+  function remove(id) {
+    return db('project')
+      .where('id', Number(id))
+      .del();
   }

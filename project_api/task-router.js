@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
     });
   });
 
-  router.get('/:id/tasks', (req, res) => {
-    // do your magic!
+ /* router.get('/:id/tasks', (req, res) => {
+   
     task.getProjectTask(req.params.id)
       .then(task => {
         if (task) {
@@ -38,6 +38,6 @@ router.post('/', (req, res) => {
       .catch(err => {
         res.status(500).json({errorMessage: "Error connecting" });
       });
-  });
+  });*/
   
   module.exports = router;
